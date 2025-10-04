@@ -39,7 +39,7 @@ local function LoadingAnimation()
     stroke.Parent = container
 
     -- Анимированный заголовок
-    local titleText = "Fly GUI V3"
+    local titleText = "FroggiHub"
     local titleLabel = Instance.new("TextLabel")
     titleLabel.Size = UDim2.new(1, 0, 0, 40)
     titleLabel.Position = UDim2.new(0, 0, 0.3, 0)
@@ -57,7 +57,7 @@ local function LoadingAnimation()
     subtitle.Size = UDim2.new(1, 0, 0, 20)
     subtitle.Position = UDim2.new(0, 0, 0.6, 0)
     subtitle.BackgroundTransparency = 1
-    subtitle.Text = "By XNEO | FroggiHub Style"
+    subtitle.Text = "Fly all Places"
     subtitle.TextColor3 = Color3.new(0.7, 0.7, 0.7)
     subtitle.TextSize = 12
     subtitle.Font = Enum.Font.Gotham
@@ -187,7 +187,7 @@ up = CreateStyledButton("UP", UDim2.new(0.05, 0, 0.25, 0), UDim2.new(0.4, 0, 0.2
 down = CreateStyledButton("DOWN", UDim2.new(0.05, 0, 0.5, 0), UDim2.new(0.4, 0, 0.2, 0), Color3.fromRGB(200, 100, 0))
 onof = CreateStyledButton("FLY", UDim2.new(0.55, 0, 0.75, 0), UDim2.new(0.4, 0, 0.2, 0), Color3.fromRGB(0, 150, 0))
 
-TextLabel = CreateStyledLabel("FLY GUI V3", UDim2.new(0.05, 0, 0.05, 0), UDim2.new(0.9, 0, 0.15, 0), Color3.fromRGB(40, 40, 40))
+TextLabel = CreateStyledLabel("Fly GUI V1", UDim2.new(0.05, 0, 0.05, 0), UDim2.new(0.9, 0, 0.15, 0), Color3.fromRGB(40, 40, 40))
 TextLabel.Font = Enum.Font.GothamBold
 TextLabel.TextSize = 14
 
@@ -210,8 +210,8 @@ nowe = false
 
 -- Уведомление в стиле FroggiHub
 game:GetService("StarterGui"):SetCore("SendNotification", { 
-    Title = "FLY GUI V3 - FroggiHub Style",
-    Text = "By XNEO | Modified by FroggiHub",
+    Title = "FroggiHub - Fly GUI V1",
+    Text = "Fly all Places | By XNEO",
     Duration = 5
 })
 
@@ -477,6 +477,7 @@ closebutton.MouseButton1Click:Connect(function()
     main:Destroy()
 end)
 
+-- ИСПРАВЛЕННАЯ ФУНКЦИЯ СВОРАЧИВАНИЯ
 mini.MouseButton1Click:Connect(function()
     up.Visible = false
     down.Visible = false
@@ -485,9 +486,12 @@ mini.MouseButton1Click:Connect(function()
     speed.Visible = false
     mine.Visible = false
     mini.Visible = false
-    mini2.Visible = true
-    Frame.BackgroundTransparency = 0.8
     TextLabel.Visible = false
+    mini2.Visible = true
+    
+    -- Полностью скрываем фрейм при сворачивании
+    Frame.Size = UDim2.new(0, 60, 0, 30)
+    Frame.Position = UDim2.new(Frame.Position.X.Scale, Frame.Position.X.Offset, Frame.Position.Y.Scale, Frame.Position.Y.Offset)
 end)
 
 mini2.MouseButton1Click:Connect(function()
@@ -498,9 +502,12 @@ mini2.MouseButton1Click:Connect(function()
     speed.Visible = true
     mine.Visible = true
     mini.Visible = true
-    mini2.Visible = false
-    Frame.BackgroundTransparency = 0.1
     TextLabel.Visible = true
+    mini2.Visible = false
+    
+    -- Восстанавливаем размер фрейма
+    Frame.Size = UDim2.new(0, 200, 0, 120)
+    Frame.Position = UDim2.new(Frame.Position.X.Scale, Frame.Position.X.Offset, Frame.Position.Y.Scale, Frame.Position.Y.Offset)
 end)
 
-print("Fly GUI V3 - FroggiHub Style loaded successfully!")
+print("FroggiHub - Fly GUI V1 loaded successfully!")
