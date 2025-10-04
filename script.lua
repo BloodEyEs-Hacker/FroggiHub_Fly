@@ -211,7 +211,7 @@ nowe = false
 -- Уведомление в стиле FroggiHub
 game:GetService("StarterGui"):SetCore("SendNotification", { 
     Title = "FroggiHub - Fly GUI V1",
-    Text = "Fly all Places | By XNEO",
+    Text = "Fly all Places | By FroggiTeam",
     Duration = 5
 })
 
